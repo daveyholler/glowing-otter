@@ -12,8 +12,8 @@ function App() {
 
   return (
     <EuiProvider colorMode='light'>
-      <EuiFlexGroup direction="column" alignItems="center" style={{ padding: '3rem', maxWidth: 1024, margin: 'auto' }}>
-        <EuiFlexItem>
+      <EuiFlexGroup direction="column" alignItems="center" style={{ padding: '3rem', margin: 'auto', maxWidth: 1024 }}>
+        <EuiFlexItem style={{ width: '100%' }}>
           <EuiTitle>
             <h1>Welcome to Elastic Search</h1>
           </EuiTitle>

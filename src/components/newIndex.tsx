@@ -22,9 +22,14 @@ export const NewIndex: React.FC<NewIndexProps> = ({ onChange, onDataViewChange, 
     onEnrichmentChange(!allowEnrichment);
   }
 
+  const replaceSpecialCharsAndSpaces = (str: string) => {
+    return str.replace(/[^a-zA-Z0-9]/g, '-');
+  }
+
   const handleIndexNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIndexName(e.target.value);
-    onChange(e.target.value);
+    const name = replaceSpecialCharsAndSpaces(e.target.value)
+    setIndexName(name);
+    onChange(name);
   }
 
   return (
@@ -54,7 +59,7 @@ export const NewIndex: React.FC<NewIndexProps> = ({ onChange, onDataViewChange, 
                 helpText="Your index name should be lowercase and may include a hyphen."
                 fullWidth
               >
-                <EuiFieldText onChange={handleIndexNameChange} fullWidth />
+                <EuiFieldText value={indexName} onChange={handleIndexNameChange} fullWidth />
               </EuiFormRow>
             </EuiFlexItem>
             <EuiFlexItem grow>
